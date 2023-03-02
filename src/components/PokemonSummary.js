@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const DynamicPokemonAbilities = dynamic(() => import("./PokemonAbilities"), {
@@ -27,9 +26,6 @@ export const PokemonSummary = ({ pokemon }) => {
             onClick={() => setShowAbilities(!showAbilities)}
           >
             Abilities
-          </button>
-          <button className="btn btn-xs btn-outline btn-warning">
-            <Link href={`/pokemon/${pokemon.name}`}>JSON</Link>
           </button>
         </div>
         {showAbilities ? <DynamicPokemonAbilities url={pokemon.url} /> : null}
